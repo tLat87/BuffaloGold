@@ -10,7 +10,7 @@ workflows:
         distribution_type: app_store
         bundle_identifier: com.buffaloechoes.my
       vars:
-        APP_STORE_APPLE_ID: 6742177832---
+        APP_STORE_APPLE_ID: 6745814058
         BUNDLE_ID: "com.buffaloechoes.my"
         XCODE_WORKSPACE: "BuffaloGold.xcworkspace"
         XCODE_SCHEME: "BuffaloGold"
