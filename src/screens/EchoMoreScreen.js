@@ -1,0 +1,286 @@
+import React, {useState} from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    ScrollView,
+    TouchableOpacity,
+    Image,
+    ImageBackground, Pressable, Modal,
+} from 'react-native';
+import Share from 'react-native-share';
+
+const EchoMoreScreen = ({navigation, route}) => {
+    const {story} = route.params;
+    const [modalVisible, setModalVisible] = useState(false);
+    const [selectedRating, setSelectedRating] = useState(0);
+
+    const renderHearts = () => {
+        return (
+            <View style={styles.heartsRow}>
+                {[1, 2, 3, 4, 5].map((val) => (
+                    <Pressable key={val} onPress={() => setSelectedRating(val)}>
+                        <Image
+                            source={require('../assets/img/mdi_heart.png')}
+                            style={[
+                                { opacity: selectedRating >= val ? 1 : 0.3 }
+                            ]}
+                        />
+                    </Pressable>
+                ))}
+            </View>
+        );
+    };
+
+
+
+    const handleShareStory = async (story) => {
+        const shareOptions = {
+            title: `Echoes: ${story.title}`,
+            message:
+                `🌅 Story: ${story.title}\n\n` +
+                (story.location ? `📍 Location: ${story.location}\n` : '') +
+                `📝 ${story.echo}\n` +
+                (story.reference ? `📚 Reference: ${story.reference}` : ''),
+        };
+
+        try {
+            await Share.open(shareOptions);
+        } catch (error) {
+            console.log('Error sharing story:', error);
+        }
+    };
+
+    return (
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.headerRow}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}>
+            <Text style={styles.backIcon}>⤺</Text>
+          </TouchableOpacity>
+          <View style={styles.headerBox}>
+            <Text style={styles.headerText}>Reading</Text>
+          </View>
+        </View>
+
+        <Text style={styles.title}>{story.title}</Text>
+
+        {story.reference && (
+          <Text style={styles.bodyText}>reference: {story.reference}</Text>
+        )}
+        {story.location && (
+          <Text style={styles.bodyText}>location: {story.location}</Text>
+        )}
+        {story.echo && <Text style={styles.bodyText}>echo: {story.echo}</Text>}
+        {story.note && <Text style={styles.bodyText}>note: {story.note}</Text>}
+        {story.impact && (
+          <Text style={styles.bodyText}>impact: {story.impact}</Text>
+        )}
+        {story.featured_in && (
+          <Text style={styles.bodyText}>featured in: {story.featured_in}</Text>
+        )}
+        {story.notable_works && (
+          <Text style={styles.bodyText}>
+            notable works: {story.notable_works}
+          </Text>
+        )}
+        {story.symbolism && (
+          <Text style={styles.bodyText}>symbolism: {story.symbolism}</Text>
+        )}
+
+        {story.quote &&
+          <View style={styles.quoteBox}>
+            <Text style={styles.quoteText}>
+              "{story.quote}"
+            </Text>
+          </View>
+        }
+
+        <View style={styles.buttonRow}>
+            <TouchableOpacity style={styles.rateButton} onPress={() => setModalVisible(true)}>
+            <Text style={styles.rateText}>Rate</Text>
+          </TouchableOpacity>
+            <TouchableOpacity style={styles.iconButton} onPress={() => handleShareStory(story)}>
+            <Image source={require('../assets/img/1231.png')} />
+          </TouchableOpacity>
+        </View>
+          <Modal
+              transparent={true}
+              visible={modalVisible}
+              animationType="fade"
+              onRequestClose={() => setModalVisible(false)}
+          >
+              <View style={styles.modalBackdrop}>
+                  <View style={styles.modalBox}>
+                      <Text style={styles.modalTitle}>Rate this post:</Text>
+                      {renderHearts()}
+                      <TouchableOpacity
+                          style={styles.modalButton}
+                          onPress={() => {
+                              setModalVisible(false);
+                              console.log('User rated:', selectedRating);
+                              // можешь тут делать отправку рейтинга на сервер или сохранять
+                          }}
+                      >
+                          <Text style={styles.modalButtonText}>Rate</Text>
+                      </TouchableOpacity>
+                  </View>
+              </View>
+          </Modal>
+
+      </ScrollView>
+    );
+};
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 16,
+        paddingTop: 80,
+        backgroundColor: '#1D0E09',
+    },
+    modalBackdrop: {
+        flex: 1,
+        backgroundColor: 'rgba(0,0,0,0.6)',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalBox: {
+        backgroundColor: '#3D1F12',
+        padding: 24,
+        borderRadius: 20,
+        borderColor: '#fff',
+        borderWidth: 1,
+        width: '80%',
+        alignItems: 'center',
+    },
+    modalTitle: {
+        color: 'white',
+        fontSize: 18,
+        marginBottom: 16,
+        fontFamily: 'JainiPurva-Regular',
+    },
+    heartsRow: {
+        flexDirection: 'row',
+        marginBottom: 20,
+    },
+    heart: {
+        fontSize: 28,
+        marginHorizontal: 6,
+        color: '#5e3e2c',
+    },
+    heartSelected: {
+        color: '#F6A530',
+    },
+    modalButton: {
+        backgroundColor: '#F6A530',
+        paddingHorizontal: 30,
+        paddingVertical: 12,
+        borderRadius: 15,
+    },
+    modalButtonText: {
+        fontWeight: 'bold',
+        color: '#1C120D',
+        fontFamily: 'JainiPurva-Regular',
+    },
+
+    headerRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 12,
+    },
+    backButton: {
+        backgroundColor: '#3D1F12',
+        padding: 12,
+        borderRadius: 20,
+        marginRight: 10,
+    },
+    backIcon: {
+        color: 'white',
+        fontSize: 18,
+    },
+    headerBox: {
+        flex: 1,
+        backgroundColor: '#3D1F12',
+        padding: 12,
+        borderRadius: 20,
+        alignItems: 'center',
+    },
+    headerText: {
+        fontSize: 18,
+        color: 'white',
+        fontFamily: 'JainiPurva-Regular',
+        fontWeight: 'bold',
+    },
+    mainImage: {
+        width: '100%',
+        height: 200,
+        borderRadius: 20,
+        marginBottom: 16,
+        resizeMode: 'cover',
+    },
+    title: {
+        fontSize: 18,
+        color: 'white',
+        fontWeight: 'bold',
+        fontFamily: 'serif',
+        marginBottom: 4,
+    },
+    subText: {
+        color: 'white',
+        marginBottom: 10,
+    },
+    bodyText: {
+        color: 'white',
+        marginBottom: 8,
+        fontSize: 14,
+        lineHeight: 20,
+    },
+    partsTitle: {
+        color: 'white',
+        marginTop: 8,
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+    quoteBox: {
+        backgroundColor: '#3D1F12',
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 20,
+        padding: 16,
+        marginTop: 16,
+    },
+    quoteText: {
+        color: 'white',
+        textAlign: 'center',
+        fontStyle: 'italic',
+    },
+    buttonRow: {
+        flexDirection: 'row',
+        marginTop: 20,
+        gap: 10,
+        alignItems: 'center',
+    },
+    rateButton: {
+        backgroundColor: '#F6A530',
+        flex: 1,
+        padding: 12,
+        borderRadius: 20,
+        alignItems: 'center',
+    },
+    rateText: {
+        fontWeight: 'bold',
+        color: '#1C120D',
+        fontFamily: 'JainiPurva-Regular',
+    },
+    iconButton: {
+        backgroundColor: 'white',
+        padding: 12,
+        borderRadius: 20,
+    },
+});
+
+
+export default EchoMoreScreen;
