@@ -62,7 +62,7 @@ const CultureMoreScreen = ({navigation, route}) => {
         </View>
 
         <Image
-          source={{uri: 'https://s3-alpha-sig.figma.com/img/66b1/4fe1/783705af5cf61e816e298f2c3b80c94b?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rhAswXvwehrQmsnuv2NW7itU7eeUo3eXjgIrwJD90PkxP67emc0O977JhzmZIBnlR8Z1F0RTz6LHwfpafKC4lJO~K5OnE7qwdYkA2Wgj92aVSP6-wG-kf6RERr5LTPrXDFImhxjaXZsEUXpHTvJJhJvw~PjHA6afxD-y2aeS26729N6NXgtSQSX3c7aPOw~y5Ny5jJaCme4hn~LxtnBQ4G22btIAyDf2onswvjA4Hwzi5FPOiROXmXS~yi8VmvftBhAsbSc9uh5hnVdSMPg12ZR6NdSkXW1xwe~MArAoQkRjEPp4KMtsVUldyG2gF9uNMHPcmkUoHI-pyz-hHGP49A__'}}
+          source={require('../assets/img/one/66b14fe1783705af5cf61e816e298f2c3b80c94b.png')}
           style={styles.mainImage}
         />
 
