@@ -58,7 +58,7 @@ const ArenaMoreScreen = ({ navigation, route }) => {
             <Image source={require('../assets/img/4124214.png')} />
           </TouchableOpacity>
           <View style={styles.card}>
-            <Image source={{uri: item.image}} style={styles.arenaImage} />
+            <Image source={item.image} style={styles.arenaImage} />
             <Text style={styles.arenaName}>{item.name}</Text>
             <Text style={styles.location}>📍 {item.location}</Text>
             <Text style={styles.coordinates}>
