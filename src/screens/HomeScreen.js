@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import {
     View,
     Text,
@@ -14,35 +15,35 @@ const data = [
     {
         "name": "Plaza de Toros de Las Ventas",
         "location": "Madrid, Spain",
-        "image": require('../assets/img/build/9b015653fa613c41400a672f6b482126bab03754.png'),
+        "image": require('../assets/img/9b015653fa613c41400a672f6b482126bab03754.png'),
         "coordinates": "40.4320° N, 3.6630° W",
         "description": "A true icon of Spanish architecture and heritage, Las Ventas is the largest bullring in Spain and one of the most recognized in the world. Known for its Neo-Mudéjar style, it represents the heart of Madrid’s traditional festivities."
     },
     {
         "name": "Plaza de Toros de la Maestranza",
         "location": "Seville, Spain",
-        "image": require('../assets/img/build/59ffcfbef3bd959f3ec015cd0f0718887f95d212.png'),
+        "image": require('../assets/img/59ffcfbef3bd959f3ec015cd0f0718887f95d212.png'),
         "coordinates": "37.3861° N, 5.9961° W",
         "description": "One of the oldest and most elegant bullrings in Spain. Located near the Guadalquivir River, this arena is deeply embedded in Andalusian culture and showcases the ceremonial grace of the tradition."
     },
     {
         "name": "Plaza de Toros de Ronda",
         "location": "Ronda, Spain",
-        "image": require('../assets/img/build/19887a279d6a844a83ab2d7a6ab4b8dd5a599a45.png'),
+        "image": require('../assets/img/19887a279d6a844a83ab2d7a6ab4b8dd5a599a45.png'),
         "coordinates": "36.7419° N, 5.1671° W",
         "description": "Considered one of the cradles of bullfighting tradition, this 18th-century arena is admired for its classical circular design and serene setting in the hills of southern Spain."
     },
     {
         "name": "Plaza de Toros de Valencia",
         "location": "Valencia, Spain",
-        "image": require('../assets/img/build/c5fda9efa3e86d581cbc24480d4cfc6bad95fffe.png'),
+        "image": require('../assets/img/c5fda9efa3e86d581cbc24480d4cfc6bad95fffe.png'),
         "coordinates": "39.4651° N, 0.3764° W",
         "description": "A cultural venue that blends Roman-inspired architecture with vibrant local festivities. It has hosted not only traditional events but also concerts and exhibitions."
     },
     {
         "name": "Plaza de Toros de Zaragoza (La Misericordia)",
         "location": "Zaragoza, Spain",
-        "image": require('../assets/img/build/fda3036820aae29bb49287ea2f480eb9187a87cc.png'),
+        "image": require('../assets/img/fda3036820aae29bb49287ea2f480eb9187a87cc.png'),
         "coordinates": "41.6488° N, 0.8891° W",
         "description": "This historic arena plays a significant role in Zaragoza’s festivals and is recognized for its unique octagonal structure and ornate façade."
     },
@@ -50,13 +51,13 @@ const data = [
         "name": "Plaza de Toros de Pamplona",
         "location": "Pamplona, Spain",
         "coordinates": "42.8185° N, 1.6432° W",
-        "image": require('../assets/img/build/d7ca499ea069ce4e88bc966ae0377cbb2cf8bcd1.png'),
+        "image": require('../assets/img/d7ca499ea069ce4e88bc966ae0377cbb2cf8bcd1.png'),
         "description": "Famous globally for the San Fermín festival and the running of the bulls. The arena marks the final destination of the traditional run and holds deep cultural significance."
     },
     {
         "name": "Arènes de Nîmes",
         "location": "Nîmes, France",
-        "image": require('../assets/img/build/bd51a4d7f2c5cace6dd85c2b15bbfac9041977cc.png'),
+        "image": require('../assets/img/bd51a4d7f2c5cace6dd85c2b15bbfac9041977cc.png'),
         "coordinates": "43.8340° N, 4.3601° E",
         "description": "An ancient Roman amphitheater still in use today for cultural events and festivals. It bridges classical architecture with Iberian tradition in a remarkable way."
     },

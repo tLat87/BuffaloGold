@@ -25,7 +25,7 @@ workflows:
         script: |
           cd ios
           xcode-project use-profiles
-      - name: Increment build number
+      - name: Increment more number
         script: |
           #!/bin/sh
           cd $CM_BUILD_DIR/ios
@@ -42,7 +42,7 @@ workflows:
             --workspace "$CM_BUILD_DIR/ios/$XCODE_WORKSPACE" \
             --scheme "$XCODE_SCHEME"
     artifacts:
-      - build/ios/ipa/*.ipa
+      - more/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
