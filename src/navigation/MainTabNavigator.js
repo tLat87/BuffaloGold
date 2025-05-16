@@ -31,6 +31,7 @@ const MainTabNavigator = () => {
                     marginLeft: '5%',
                     backgroundColor: '#404040',
                     borderRadius: 16,
+                    height: 80,
                     borderWidth: 3,
                     borderColor: '#F98C0B',
                     paddingTop: 20,

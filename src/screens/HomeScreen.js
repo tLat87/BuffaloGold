@@ -130,6 +130,7 @@ const HomeScreen = ({ navigation }) => {
                 {/*    <Image source={require('../assets/img/material-symbols_map.png')} />*/}
                 {/*    <Text style={styles.fullButtonText}> Open map of arenas</Text>*/}
                 {/*</TouchableOpacity>*/}
+                <View style={{marginBottom: 150}}/>
             </ScrollView>
         </ImageBackground>
     );

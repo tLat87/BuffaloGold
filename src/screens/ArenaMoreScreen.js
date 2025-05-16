@@ -87,6 +87,7 @@ const ArenaMoreScreen = ({ navigation, route }) => {
                 </TouchableOpacity>
             </View>
           </View>
+            <View style={{marginBottom: 50}}/>
         </ScrollView>
       </ImageBackground>
     );
