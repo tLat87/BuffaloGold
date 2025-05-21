@@ -9,6 +9,8 @@ import {
     ImageBackground,
 } from 'react-native';
 import Share from 'react-native-share';
+import {toggleTheme} from '../redux/slices/themeSlice';
+import {useDispatch, useSelector} from 'react-redux';
 const data =[
     {
         "id": 1,
@@ -119,7 +121,11 @@ const data =[
 
 
 const CultureScreen = ({ navigation }) => {
-
+    const dispatch = useDispatch();
+    const theme = useSelector(state => state.theme.theme);
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     const handleShare = async () => {
         const shareOptions = {
             message:
@@ -138,7 +144,7 @@ const CultureScreen = ({ navigation }) => {
 
     return (
         <ImageBackground
-            source={require('../assets/img/image3.png')}
+            source={backgroundImage}
             style={styles.background}
             resizeMode="cover"
         >
@@ -150,10 +156,10 @@ const CultureScreen = ({ navigation }) => {
                 </View>
                 {data.map(culture => (
                     <View style={styles.card}>
-                        <Image
-                            source={require('../assets/img/one/66b14fe1783705af5cf61e816e298f2c3b80c94b.png')}
-                            style={styles.arenaImage}
-                        />
+                        {/*<Image*/}
+                        {/*    source={require('../assets/img/one/66b14fe1783705af5cf61e816e298f2c3b80c94b.png')}*/}
+                        {/*    style={styles.arenaImage}*/}
+                        {/*/>*/}
                         <Text style={styles.arenaName}>{culture.title}</Text>
                         <Text style={styles.location}>{culture.origin}</Text>
 
@@ -173,6 +179,27 @@ const CultureScreen = ({ navigation }) => {
 
                 <View style={{marginBottom: 120}}/>
             </ScrollView>
+            <TouchableOpacity
+                onPress={() => dispatch(toggleTheme())}
+                style={{
+                    position: 'absolute',
+                    top: 50,
+                    right: 20,
+                    backgroundColor: '#F6A530',
+                    borderRadius: 30,
+                    width: 60,
+                    height: 60,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.3,
+                    shadowRadius: 4,
+                    elevation: 5,
+                }}
+            >
+                <Text style={{ fontSize: 24, color: '#1C120D' }}>🌓</Text>
+            </TouchableOpacity>
         </ImageBackground>
     );
 };
@@ -191,13 +218,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 12,
         borderWidth: 2,
-        borderRadius: 20,
+
         borderColor: '#fff'
     },
     backButton: {
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         padding: 12,
-        borderRadius: 20,
+
         marginRight: 10,
     },
     backIcon: {
@@ -206,9 +233,9 @@ const styles = StyleSheet.create({
     },
     headerBox: {
         flex: 1,
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         padding: 12,
-        borderRadius: 20,
+
         alignItems: 'center',
     },
     headerText: {
@@ -218,8 +245,8 @@ const styles = StyleSheet.create({
         fontFamily: 'JainiPurva-Regular',
     },
     card: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
+
         borderWidth: 2,
         borderColor: '#fff',
         padding: 16,
@@ -236,7 +263,7 @@ const styles = StyleSheet.create({
     arenaImage: {
         width: '100%',
         height: 180,
-        borderRadius: 15,
+
         marginBottom: 15,
     },
     arenaName: {
@@ -272,7 +299,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: 24,
-        borderRadius: 15,
+
     },
     openText: {
         color: '#1C120D',
@@ -286,7 +313,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         padding: 16,
-        borderRadius: 20,
+
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 12,

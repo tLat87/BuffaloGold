@@ -14,10 +14,12 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const ArenaMoreScreen = ({ navigation, route }) => {
     const {item} = route.params;
-
+    const theme = useSelector(state => state.theme.theme);
     const savedArenas = useSelector(state => state.arenas.savedArenas);
     const isArenaSaved = savedArenas.some(arena => arena.name === item.name);
-
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     const dispatch = useDispatch();
 
     const handleShare = async () => {
@@ -47,7 +49,7 @@ const ArenaMoreScreen = ({ navigation, route }) => {
 
     return (
       <ImageBackground
-        source={require('../assets/img/image3.png')}
+        source={backgroundImage}
         style={styles.background}
         resizeMode="cover">
         <ScrollView contentContainerStyle={styles.container}>
@@ -103,8 +105,7 @@ const styles = StyleSheet.create({
         paddingTop: '20%',
     },
     card: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
         borderWidth: 2,
         borderColor: '#fff',
         padding: 16,
@@ -121,7 +122,6 @@ const styles = StyleSheet.create({
     arenaImage: {
         width: '100%',
         height: 180,
-        borderRadius: 15,
         marginBottom: 15,
     },
     arenaName: {
@@ -155,7 +155,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: 24,
-        borderRadius: 15,
     },
     openText: {
         color: '#1C120D',
@@ -168,7 +167,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         padding: 16,
-        borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 12,

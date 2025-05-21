@@ -1,0 +1,151 @@
+{
+  "wild_west": {
+    "period": "1865–1895",
+    "description": "The American Wild West, also known as the Old West or Frontier era, was a period of expansion, conflict, lawlessness, and cultural development in the western United States.",
+    "notable_figures": [
+      {
+        "name": "Billy the Kid",
+        "real_name": "Henry McCarty",
+        "occupation": "Outlaw",
+        "notoriety": "Killed 8 men before he was shot and killed at age 21.",
+        "associated_with": ["Lincoln County War", "New Mexico Territory"]
+      },
+      {
+        "name": "Wild Bill Hickok",
+        "real_name": "James Butler Hickok",
+        "occupation": "Lawman, Gambler, Gunslinger",
+        "notoriety": "Famous for quick draw duels and being shot while playing poker.",
+        "famous_quote": "Dead Man’s Hand – Aces and Eights"
+      },
+      {
+        "name": "Calamity Jane",
+        "real_name": "Martha Jane Cannary",
+        "occupation": "Frontierswoman, Scout",
+        "known_for": "Dressing like a man, fighting Native Americans, and scouting for the army.",
+        "linked_to": ["Wild Bill Hickok", "Deadwood"]
+      },
+      {
+        "name": "Jesse James",
+        "occupation": "Bank and Train Robber",
+        "gang": "James–Younger Gang",
+        "death": "Killed by Robert Ford in 1882.",
+        "most_famous_crime": "Gads Hill Train Robbery"
+      }
+    ],
+    "towns": [
+      {
+        "name": "Tombstone",
+        "territory": "Arizona",
+        "known_for": "Gunfight at the O.K. Corral",
+        "notable_residents": ["Wyatt Earp", "Doc Holliday"]
+      },
+      {
+        "name": "Deadwood",
+        "territory": "South Dakota",
+        "notable_events": ["Gold Rush", "Death of Wild Bill Hickok"],
+        "lawlessness_level": 9
+      },
+      {
+        "name": "Dodge City",
+        "territory": "Kansas",
+        "nickname": "Queen of the Cowtowns",
+        "key_figures": ["Bat Masterson", "Wyatt Earp"]
+      }
+    ],
+    "weapons": [
+      {
+        "name": "Colt Single Action Army",
+        "nickname": "Peacemaker",
+        "caliber": ".45",
+        "used_by": ["Lawmen", "Outlaws"],
+        "introduced": 1873
+      },
+      {
+        "name": "Winchester Model 1873",
+        "type": "Lever-action rifle",
+        "nickname": "The Gun that Won the West"
+      },
+      {
+        "name": "Double-barrel shotgun",
+        "used_for": ["Close combat", "Stagecoach defense"]
+      }
+    ],
+    "events": [
+      {
+        "name": "Gunfight at the O.K. Corral",
+        "year": 1881,
+        "location": "Tombstone, Arizona",
+        "participants": ["Wyatt Earp", "Doc Holliday", "Ike Clanton"],
+        "summary": "A 30-second shootout between lawmen and outlaws that became legendary."
+      },
+      {
+        "name": "Lincoln County War",
+        "years": "1878–1881",
+        "location": "New Mexico",
+        "notable_figures": ["Billy the Kid"],
+        "conflict_type": "Rancher war"
+      },
+      {
+        "name": "Johnson County War",
+        "year": 1892,
+        "location": "Wyoming",
+        "conflict": "Tensions between large cattle companies and small ranchers."
+      }
+    ],
+    "gangs": [
+      {
+        "name": "James–Younger Gang",
+        "leaders": ["Jesse James", "Cole Younger"],
+        "crimes": ["Train robberies", "Bank heists"],
+        "area": ["Missouri", "Minnesota", "Iowa"]
+      },
+      {
+        "name": "Dalton Gang",
+        "members": ["Bob Dalton", "Grat Dalton"],
+        "infamous_for": "Attempting to rob two banks in Coffeyville, Kansas, simultaneously."
+      }
+    ],
+    "lawmen": [
+      {
+        "name": "Wyatt Earp",
+        "roles": ["Marshal", "Bounty Hunter"],
+        "famous_for": ["O.K. Corral gunfight"],
+        "relatives": ["Virgil Earp", "Morgan Earp"]
+      },
+      {
+        "name": "Bat Masterson",
+        "roles": ["Sheriff", "Gambler", "Journalist"],
+        "town": "Dodge City"
+      }
+    ],
+    "native_american_tribes": [
+      {
+        "name": "Apache",
+        "notable_leader": "Geronimo",
+        "territory": "Arizona and New Mexico"
+      },
+      {
+        "name": "Sioux",
+        "leaders": ["Sitting Bull", "Crazy Horse"],
+        "famous_battles": ["Battle of Little Bighorn"]
+      }
+    ],
+    "legends_and_myths": [
+      {
+        "legend": "Buried outlaw treasure",
+        "locations": ["New Mexico", "Arizona", "Texas"],
+        "description": "Tales of gold hidden by bandits and never recovered."
+      },
+      {
+        "legend": "Ghost towns",
+        "cause": "Boom and bust of gold and silver rushes",
+        "states": ["Nevada", "California", "Colorado"]
+      },
+      {
+        "legend": "Outlaw hauntings",
+        "location": "Deadwood, South Dakota",
+        "reported": "Spirits of Wild Bill and Calamity Jane"
+      }
+    ]
+  }
+}

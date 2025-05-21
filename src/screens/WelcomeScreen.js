@@ -1,6 +1,7 @@
 // WelcomeScreen.js
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import {useSelector} from 'react-redux';
 
 const screens = [
     {
@@ -27,7 +28,7 @@ const screens = [
 
 const WelcomeScreen = ({ navigation }) => {
     const [index, setIndex] = useState(0);
-
+    const theme = useSelector(state => state.theme.theme);
     const handleNext = () => {
         if (index < screens.length - 1) {
             setIndex(index + 1);
@@ -86,7 +87,6 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: '#FF9D12',
         paddingVertical: 12,
-        borderRadius: 25,
         marginHorizontal: 20,
         alignItems: 'center',
     },

@@ -10,15 +10,18 @@ import {
 } from 'react-native';
 
 import Share from 'react-native-share';
+import {useSelector} from 'react-redux';
 
 const MatadorsMoreScreen = ({ navigation, route }) => {
-
+    const theme = useSelector(state => state.theme.theme);
     const {matador} = route.params;
 
     const handleOpenWikipedia = () => {
         Linking.openURL(matador.wikipedia);
     };
-
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     const handleShare = async () => {
         const shareOptions = {
             title: `Matador of the Day: ${matador.name}`,
@@ -41,7 +44,7 @@ const MatadorsMoreScreen = ({ navigation, route }) => {
 
     return (
         <ImageBackground
-            source={require('../assets/img/image3.png')}
+            source={backgroundImage}
             style={styles.background}
         >
             <View style={styles.header}>
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
     backButton: {
         backgroundColor: '#331F0F',
         padding: 12,
-        borderRadius: 15,
+
         marginRight: 10,
         borderWidth: 2,
         borderColor: '#fff',
@@ -124,14 +127,14 @@ const styles = StyleSheet.create({
         fontSize: 18,
         paddingHorizontal: 20,
         paddingVertical: 12,
-        borderRadius: 15,
+
         width: '75%',
     },
     card: {
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         margin: 20,
         padding: 20,
-        borderRadius: 20,
+
         marginTop: 30,
         borderWidth: 2,
         borderColor: '#fff',
@@ -139,7 +142,7 @@ const styles = StyleSheet.create({
     matadorImage: {
         width: 140,
         height: 140,
-        borderRadius: 12,
+
         alignSelf: 'center',
         marginBottom: 15,
     },
@@ -175,7 +178,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#7DAAF5',
         padding: 12,
         flex: 1,
-        borderRadius: 15,
+
         alignItems: 'center',
     },
     wikiText: {
@@ -186,7 +189,6 @@ const styles = StyleSheet.create({
     sendButton: {
         backgroundColor: 'white',
         padding: 12,
-        borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
         width: 50,

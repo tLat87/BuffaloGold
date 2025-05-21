@@ -9,13 +9,16 @@ import {
     ImageBackground, Pressable, Modal,
 } from 'react-native';
 import Share from 'react-native-share';
+import {useSelector} from 'react-redux';
 
 const CultureMoreScreen = ({navigation, route}) => {
     const {culture} = route.params;
-
+    const theme = useSelector(state => state.theme.theme);
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedRating, setSelectedRating] = useState(0);
-
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     const renderHearts = () => {
         return (
             <View style={styles.heartsRow}>
@@ -165,9 +168,8 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
     backButton: {
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         padding: 12,
-        borderRadius: 20,
         marginRight: 10,
     },
     backIcon: {
@@ -176,9 +178,8 @@ const styles = StyleSheet.create({
     },
     headerBox: {
         flex: 1,
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         padding: 12,
-        borderRadius: 20,
         alignItems: 'center',
     },
     headerText: {
@@ -190,7 +191,6 @@ const styles = StyleSheet.create({
     mainImage: {
         width: '100%',
         height: 200,
-        borderRadius: 20,
         marginBottom: 16,
         resizeMode: 'cover',
     },
@@ -224,9 +224,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalBox: {
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         padding: 24,
-        borderRadius: 20,
         borderColor: '#fff',
         borderWidth: 1,
         width: '80%',
@@ -254,7 +253,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6A530',
         paddingHorizontal: 30,
         paddingVertical: 12,
-        borderRadius: 15,
     },
     modalButtonText: {
         fontWeight: 'bold',
@@ -262,10 +260,9 @@ const styles = StyleSheet.create({
         fontFamily: 'JainiPurva-Regular',
     },
     quoteBox: {
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         borderColor: 'white',
         borderWidth: 1,
-        borderRadius: 20,
         padding: 16,
         marginTop: 16,
     },
@@ -284,7 +281,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6A530',
         flex: 1,
         padding: 12,
-        borderRadius: 20,
         alignItems: 'center',
     },
     rateText: {
@@ -295,6 +291,6 @@ const styles = StyleSheet.create({
     iconButton: {
         backgroundColor: 'white',
         padding: 12,
-        borderRadius: 20,
+
     },
 });

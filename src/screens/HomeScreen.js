@@ -10,6 +10,8 @@ import {
     ImageBackground,
 } from 'react-native';
 import Share from 'react-native-share';
+import {toggleTheme} from '../redux/slices/themeSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
 const data = [
     {
@@ -66,9 +68,11 @@ const data = [
 const HomeScreen = ({ navigation }) => {
     const randomIndex = Math.floor(Math.random() * data.length);
     const [item, setRandomArena] = useState(data[randomIndex]);
-
-
-
+    const dispatch = useDispatch();
+    const theme = useSelector(state => state.theme.theme);
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     const handleShare = async () => {
         const shareOptions = {
             message:
@@ -87,7 +91,7 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <ImageBackground
-            source={require('../assets/img/image3.png')}
+            source={backgroundImage}
             style={styles.background}
             resizeMode="cover"
         >
@@ -132,6 +136,28 @@ const HomeScreen = ({ navigation }) => {
                 {/*</TouchableOpacity>*/}
                 <View style={{marginBottom: 150}}/>
             </ScrollView>
+            <TouchableOpacity
+                onPress={() => dispatch(toggleTheme())}
+                style={{
+                    position: 'absolute',
+                    top: 50,
+                    right: 20,
+                    backgroundColor: '#F6A530',
+                    borderRadius: 30,
+                    width: 60,
+                    height: 60,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.3,
+                    shadowRadius: 4,
+                    elevation: 5,
+                }}
+            >
+                <Text style={{ fontSize: 24, color: '#1C120D' }}>🌓</Text>
+            </TouchableOpacity>
+
         </ImageBackground>
     );
 };
@@ -147,8 +173,8 @@ const styles = StyleSheet.create({
         paddingTop: '20%',
     },
     card: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
+
         borderWidth: 2,
         borderColor: '#fff',
         padding: 16,
@@ -165,7 +191,7 @@ const styles = StyleSheet.create({
     arenaImage: {
         width: '100%',
         height: 180,
-        borderRadius: 15,
+
         marginBottom: 15,
     },
     arenaName: {
@@ -199,7 +225,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingHorizontal: 24,
-        borderRadius: 15,
+
     },
     openText: {
         color: '#1C120D',
@@ -213,7 +239,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         padding: 16,
-        borderRadius: 20,
+
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 12,

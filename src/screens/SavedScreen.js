@@ -12,10 +12,13 @@ import { useSelector } from 'react-redux';
 
 const SavedScreen = ({ navigation }) => {
     const savedArenas = useSelector((state) => state.arenas.savedArenas);
-
+    const theme = useSelector(state => state.theme.theme);
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     return (
         <ImageBackground
-            source={require('../assets/img/image3.png')}
+            source={backgroundImage}
             style={styles.background}
             resizeMode="cover"
         >
@@ -66,15 +69,13 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     card: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
         padding: 16,
         marginTop: 40,
         alignItems: 'center',
     },
     card2: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
         padding: 16,
         marginTop: 100,
         borderWidth: 2,
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
     arenaImage: {
         width: '100%',
         height: 180,
-        borderRadius: 15,
         marginBottom: 15,
     },
     arenaName: {
@@ -119,7 +119,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6A530',
         paddingVertical: 10,
         paddingHorizontal: 24,
-        borderRadius: 15,
     },
     openText: {
         color: '#1C120D',
@@ -132,7 +131,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         padding: 16,
-        borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 12,

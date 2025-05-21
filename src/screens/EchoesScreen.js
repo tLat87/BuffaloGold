@@ -9,6 +9,8 @@ import {
     ImageBackground,
 } from 'react-native';
 import Share from 'react-native-share';
+import {toggleTheme} from '../redux/slices/themeSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
 const stories = [
     {
@@ -86,7 +88,7 @@ const stories = [
 ]
 
 const EchoesScreen = ({navigation}) => {
-
+    const theme = useSelector(state => state.theme.theme);
     const handleShareStory = async (story) => {
         const shareOptions = {
             title: `Echoes: ${story.title}`,
@@ -103,11 +105,13 @@ const EchoesScreen = ({navigation}) => {
             console.log('Error sharing story:', error);
         }
     };
-
-
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
+    const dispatch = useDispatch();
     return (
         <ImageBackground
-            source={require('../assets/img/image3.png')}
+            source={backgroundImage}
             style={styles.background}
         >
             <ScrollView contentContainerStyle={styles.container}>
@@ -131,6 +135,27 @@ const EchoesScreen = ({navigation}) => {
                 ))}
                 <View style={{marginBottom: 100}}/>
             </ScrollView>
+            <TouchableOpacity
+                onPress={() => dispatch(toggleTheme())}
+                style={{
+                    position: 'absolute',
+                    top: 50,
+                    right: 20,
+                    backgroundColor: '#F6A530',
+                    borderRadius: 30,
+                    width: 60,
+                    height: 60,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.3,
+                    shadowRadius: 4,
+                    elevation: 5,
+                }}
+            >
+                <Text style={{ fontSize: 24, color: '#1C120D' }}>🌓</Text>
+            </TouchableOpacity>
         </ImageBackground>
     );
 };
@@ -146,8 +171,8 @@ const styles = StyleSheet.create({
         paddingTop: 80,
     },
     header: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
+
         borderColor: '#fff',
         borderWidth: 2,
         padding: 16,
@@ -163,10 +188,10 @@ const styles = StyleSheet.create({
         fontFamily: 'JainiPurva-Regular',
     },
     card: {
-        backgroundColor: '#3D1F12',
+        backgroundColor: '#98431a',
         borderColor: '#fff',
         borderWidth: 2,
-        borderRadius: 20,
+
         padding: 16,
         marginBottom: 20,
     },
@@ -191,7 +216,7 @@ const styles = StyleSheet.create({
         // paddingVertical: 20,
         justifyContent: 'center',
         paddingHorizontal: 24,
-        borderRadius: 15,
+
     },
     readText: {
         color: '#1C120D',
@@ -201,6 +226,6 @@ const styles = StyleSheet.create({
     iconButton: {
         backgroundColor: 'white',
         padding: 10,
-        borderRadius: 15,
+
     },
 });

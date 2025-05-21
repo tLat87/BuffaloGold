@@ -9,6 +9,8 @@ import {
     ImageBackground,
 } from 'react-native';
 import Share from 'react-native-share';
+import {toggleTheme} from '../redux/slices/themeSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
 const matadors = [
     {
@@ -75,11 +77,14 @@ const matadors = [
 
 
 const MatadorsScreen = ({navigation}) => {
-
-
+    const dispatch = useDispatch();
+    const theme = useSelector(state => state.theme.theme);
+    const backgroundImage = theme === 'light'
+        ? require('../assets/img/image3.png')
+        : require('../assets/img/fqw.jpg');
     return (
         <ImageBackground
-            source={require('../assets/img/image3.png')}
+            source={backgroundImage}
             style={styles.background}
         >
             <ScrollView contentContainerStyle={styles.container}>
@@ -104,6 +109,27 @@ const MatadorsScreen = ({navigation}) => {
                 ))}
                 <View style={{marginBottom: 100}}/>
             </ScrollView>
+            <TouchableOpacity
+                onPress={() => dispatch(toggleTheme())}
+                style={{
+                    position: 'absolute',
+                    top: 50,
+                    right: 20,
+                    backgroundColor: '#F6A530',
+                    borderRadius: 30,
+                    width: 60,
+                    height: 60,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    shadowColor: '#000',
+                    shadowOffset: { width: 0, height: 2 },
+                    shadowOpacity: 0.3,
+                    shadowRadius: 4,
+                    elevation: 5,
+                }}
+            >
+                <Text style={{ fontSize: 24, color: '#1C120D' }}>🌓</Text>
+            </TouchableOpacity>
         </ImageBackground>
     );
 };
@@ -119,8 +145,7 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     header: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
         padding: 16,
         marginTop: 20,
         marginBottom: 10,
@@ -133,15 +158,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     card: {
-        backgroundColor: '#3D1F12',
-        borderRadius: 20,
+        backgroundColor: '#98431a',
         padding: 16,
         marginBottom: 20,
     },
     image: {
         width: 150,
         height: 150,
-        borderRadius: 20,
         alignSelf: 'center',
         marginBottom: 10,
     },
@@ -168,7 +191,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingVertical: 10,
         paddingHorizontal: 24,
-        borderRadius: 15,
         width: '100%',
         alignItems: 'center',
     },
@@ -181,6 +203,5 @@ const styles = StyleSheet.create({
     iconButton: {
         backgroundColor: 'white',
         padding: 10,
-        borderRadius: 15,
     },
 });
