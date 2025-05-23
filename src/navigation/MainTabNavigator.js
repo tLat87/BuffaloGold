@@ -29,7 +29,7 @@ const MainTabNavigator = () => {
                     right: 20,
                     width: '90%',
                     marginLeft: '5%',
-                    backgroundColor: '#6a1414',
+                    backgroundColor: '#146a39',
                     height: 80,
                     borderWidth: 3,
                     borderColor: '#713a00',

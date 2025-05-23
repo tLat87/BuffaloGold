@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 16,
         paddingTop: 80,
-        backgroundColor: '#1D0E09',
+        backgroundColor: '#004527',
     },
     modalBackdrop: {
         flex: 1,
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalBox: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 24,
         borderColor: '#fff',
         borderWidth: 1,
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
     backButton: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 12,
         marginRight: 10,
     },
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     },
     headerBox: {
         flex: 1,
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 12,
         alignItems: 'center',
     },
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     quoteBox: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         borderColor: 'white',
         borderWidth: 1,
 

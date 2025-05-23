@@ -58,7 +58,7 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#1D0E09',
+        backgroundColor: '#004527',
     },
     image: {
         width: '100%',

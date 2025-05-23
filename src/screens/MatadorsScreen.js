@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
         paddingTop: 50,
     },
     header: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 16,
         marginTop: 20,
         marginBottom: 10,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     card: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 16,
         marginBottom: 20,
     },

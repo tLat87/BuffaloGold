@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
         paddingTop: 80,
     },
     header: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
 
         borderColor: '#fff',
         borderWidth: 2,
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
         fontFamily: 'JainiPurva-Regular',
     },
     card: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         borderColor: '#fff',
         borderWidth: 2,
 

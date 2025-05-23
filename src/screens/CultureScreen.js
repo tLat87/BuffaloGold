@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
         borderColor: '#fff'
     },
     backButton: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 12,
 
         marginRight: 10,
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     },
     headerBox: {
         flex: 1,
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 12,
 
         alignItems: 'center',
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
         fontFamily: 'JainiPurva-Regular',
     },
     card: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
 
         borderWidth: 2,
         borderColor: '#fff',

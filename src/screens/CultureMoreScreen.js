@@ -16,9 +16,7 @@ const CultureMoreScreen = ({navigation, route}) => {
     const theme = useSelector(state => state.theme.theme);
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedRating, setSelectedRating] = useState(0);
-    const backgroundImage = theme === 'light'
-        ? require('../assets/img/image3.png')
-        : require('../assets/img/fqw.jpg');
+
     const renderHearts = () => {
         return (
             <View style={styles.heartsRow}>
@@ -40,7 +38,7 @@ const CultureMoreScreen = ({navigation, route}) => {
         const shareOptions = {
             title: 'Check this out!',
             message: `Have a look at this cultural event: ${culture.title}`,
-            url: culture.link || '', // можно использовать поле из объекта culture, если оно есть
+            url: culture.link || '',
         };
 
         try {
@@ -52,7 +50,7 @@ const CultureMoreScreen = ({navigation, route}) => {
 
 
     return (
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.headerRow}>
           <TouchableOpacity
             style={styles.backButton}
@@ -93,7 +91,6 @@ const CultureMoreScreen = ({navigation, route}) => {
             ))}
           </>
         )}
-
         {culture.extras.length > 0 && (
           <>
             <Text style={styles.partsTitle}>Extras:</Text>
@@ -102,7 +99,6 @@ const CultureMoreScreen = ({navigation, route}) => {
             ))}
           </>
         )}
-
         {culture.quote &&
           <View style={styles.quoteBox}>
             <Text style={styles.quoteText}>
@@ -117,7 +113,6 @@ const CultureMoreScreen = ({navigation, route}) => {
                   </Text>
               </View>
           }
-
         <View style={styles.buttonRow}>
           <TouchableOpacity style={styles.rateButton} onPress={()=>{setModalVisible(true)}}>
             <Text style={styles.rateText}>Rate</Text>
@@ -141,7 +136,6 @@ const CultureMoreScreen = ({navigation, route}) => {
                           onPress={() => {
                               setModalVisible(false);
                               console.log('User rated:', selectedRating);
-                              // можешь тут делать отправку рейтинга на сервер или сохранять
                           }}
                       >
                           <Text style={styles.modalButtonText}>Rate</Text>
@@ -149,6 +143,7 @@ const CultureMoreScreen = ({navigation, route}) => {
                   </View>
               </View>
           </Modal>
+          <View style={{marginBottom: 100}}/>
       </ScrollView>
     );
 };
@@ -160,7 +155,8 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 16,
         paddingTop: 80,
-        backgroundColor: '#1D0E09',
+
+        backgroundColor: '#004527',
     },
     headerRow: {
         flexDirection: 'row',
@@ -168,7 +164,7 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
     backButton: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 12,
         marginRight: 10,
     },
@@ -178,7 +174,7 @@ const styles = StyleSheet.create({
     },
     headerBox: {
         flex: 1,
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 12,
         alignItems: 'center',
     },
@@ -224,7 +220,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     modalBox: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 24,
         borderColor: '#fff',
         borderWidth: 1,
@@ -260,7 +256,7 @@ const styles = StyleSheet.create({
         fontFamily: 'JainiPurva-Regular',
     },
     quoteBox: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         borderColor: 'white',
         borderWidth: 1,
         padding: 16,

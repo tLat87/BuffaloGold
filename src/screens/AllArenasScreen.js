@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         paddingTop: '20%',
     },
     card: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         borderWidth: 2,
         borderColor: '#fff',
         padding: 16,

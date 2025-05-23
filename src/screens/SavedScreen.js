@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     card: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 16,
         marginTop: 40,
         alignItems: 'center',
     },
     card2: {
-        backgroundColor: '#98431a',
+        backgroundColor: '#023804',
         padding: 16,
         marginTop: 100,
         borderWidth: 2,
