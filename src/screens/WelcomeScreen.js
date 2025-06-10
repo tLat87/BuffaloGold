@@ -33,7 +33,7 @@ const WelcomeScreen = ({ navigation }) => {
         if (index < screens.length - 1) {
             setIndex(index + 1);
         } else {
-            navigation.replace('MainTab'); // Переход на главный экран
+            navigation.replace('MainTab');
         }
     };
 
@@ -47,7 +47,7 @@ const WelcomeScreen = ({ navigation }) => {
                 <Text style={styles.description}>{current.description}</Text>
             </View>
             <TouchableOpacity style={styles.button} onPress={handleNext}>
-                <Text style={styles.buttonText}>Next</Text>
+                <Text style={styles.buttonText}>GO</Text>
             </TouchableOpacity>
         </View>
     );
@@ -58,7 +58,7 @@ export default WelcomeScreen;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#004527',
+        backgroundColor: '#d50040',
     },
     image: {
         width: '100%',
